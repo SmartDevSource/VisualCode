@@ -2,10 +2,10 @@ import mysql.connector
 from vars import *
 
 class DatabaseManager():  
-    HOST = "db4free.net"
-    USER = "testpython123"
-    PASSWORD = "Sqlsql123"
-    DATABASE = "testpython123"
+    HOST = ""
+    USER = ""
+    PASSWORD = ""
+    DATABASE = ""
     PORT = 3306
 
     TABLE_NAME = "visualize"
