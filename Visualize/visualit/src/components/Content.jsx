@@ -38,7 +38,7 @@ export const Content = ({category, data}) => {
                             }
                         })}
                     </span>
-                    <span className = "arrow-function">→</span>
+                    <span className = "function-arrow">→</span>
                     </>
                 )
 
@@ -60,7 +60,7 @@ export const Content = ({category, data}) => {
                     <span>(</span>
                     <span className = "string-color">{functionStrParams}</span>
                     <span className = "parenthesis-color">)</span>
-                    <span className = "arrow-function">→</span>
+                    <span className = "function-arrow">→</span>
                     <span style = {{float:'right'}}>
                         <span className = { isBoolean(strSecondPart) ? `boolean-color` : 'string-color'}>{strSecondPart}</span>
                     </span>

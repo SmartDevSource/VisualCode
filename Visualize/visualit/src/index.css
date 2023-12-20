@@ -147,10 +147,10 @@ body {
   right:5px;
 }
 
-.arrow-function{
+.function-arrow{
   position:absolute;
-  right:150px;
   top: 0px;
+  right:155px;
   font-size:22px;
   font-weight: bold;
   color: #DCDCDC;
