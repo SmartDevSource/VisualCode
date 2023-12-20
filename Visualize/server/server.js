@@ -7,11 +7,11 @@ const app = express()
 const port = 3000
 
 const db = mysql.createConnection({
-        host: "db4free.net",
-        user:"testpython123",
-        password: "Sqlsql123",
-        database: "testpython123",
-        port: 3306
+        host: process.env.HOST,
+        user: process.env.USER,
+        password: process.env.PASSWORD,
+        database: process.env.DATABASE,
+        port: process.env.PORT
 })
 
 db.connect((err)=>{ err ? console.log("Erreur de connection", err) : console.log("Connection réussie") })
