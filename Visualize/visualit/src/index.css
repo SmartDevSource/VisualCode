@@ -132,6 +132,10 @@ body {
   color: rgb(99, 187, 64)
 }
 
+.number-color {
+  color: rgb(196, 114, 250);
+}
+
 .boolean-color {
   color: rgb(115, 171, 255)
 }

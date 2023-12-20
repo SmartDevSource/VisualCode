@@ -13,6 +13,7 @@ export const Content = ({category, data}) => {
         const datas = data.split('>')
         
         var currentColor = ''
+        var dotTriggered = false
 
         switch(category){
             case 'Arrays':
@@ -22,10 +23,10 @@ export const Content = ({category, data}) => {
                         switch(c){
                             case '@': return <Shape type = "circle"></Shape>
                             case '^': return <Shape type = "triangle"></Shape>
-                            case '.': currentColor = 'function-color'; return <span>.</span>; break
-                            case '(': currentColor = ''; return <span>(</span>; break
-                            case '"' : currentColor == '' ? currentColor = 'string-color' : currentColor = ''; return <span className = 'string-color'>"</span>; break
-                            case ')': return <span>)</span>; break
+                            case '.': currentColor = 'function-color'; return <span>.</span>
+                            case '(': currentColor = ''; return <span>(</span>
+                            case '"' : currentColor == '' ? currentColor = 'string-color' : currentColor = ''; return <span className = 'string-color'>"</span>
+                            case ')': return <span>)</span>
                             default: return currentColor != '' ? <span className={currentColor}>{c}</span> : c
                         }
                     })}
@@ -64,6 +65,44 @@ export const Content = ({category, data}) => {
                     <span style = {{float:'right'}}>
                         <span className = { isBoolean(strSecondPart) ? `boolean-color` : 'string-color'}>{strSecondPart}</span>
                     </span>
+                    </>
+                )
+                setContent(tmpContent)
+
+            break
+            case 'Maths':
+                tmpContent.push(
+                    <>
+                    {datas[0].split('').map(c=>{
+                        switch(c){
+                            case '@': return <Shape type = "circle"></Shape>
+                            case '^': return <Shape type = "triangle"></Shape>
+                            case '.': 
+                                if (!dotTriggered){
+                                    currentColor = 'function-color'
+                                    dotTriggered = true
+                                    return <span>.</span>
+                                } else {
+                                    currentColor = 'number-color'
+                                    return <span className = 'number-color'>.</span>
+                                }
+                            break
+                            case ',': return <span>,</span>               
+                            case '(': currentColor = 'number-color'; return <span>(</span>
+                            case '+': currentColor = 'number-color'; return <span>+</span>
+                            case ';': return <span>;</span>
+                            case ')': currentColor = ''; return <span>)</span>
+                            default: return currentColor != '' ? <span className={currentColor}>{c}</span> : c
+                        }
+                    })}
+                    <span style = {{float:'right'}}>
+                        <span className = 'number-color'>
+                        {datas[1].split('').map(c=>{
+                            return c
+                        })}
+                        </span>
+                    </span>
+                    <span className = "function-arrow">→</span>
                     </>
                 )
                 setContent(tmpContent)
