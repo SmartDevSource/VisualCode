@@ -148,14 +148,14 @@ body {
   width: 20px;
   position: absolute;
   top: 2px;
-  right:5px;
+  right: 5px;
 }
 
 .function-arrow{
-  position:absolute;
+  position: absolute;
   top: 0px;
-  right:155px;
-  font-size:22px;
+  right: 155px;
+  font-size: 18px;
   font-weight: bold;
   color: #DCDCDC;
 }
@@ -165,7 +165,7 @@ body {
   .obj-triangle { border-right : 6px solid transparent; border-bottom : 12px solid rgb(252, 231, 50); border-left : 6px solid transparent; }
 
   .right-arrow { width: 15px; top: -3px;}
-  .arrow-function { right: 75px; top: 2px; font-size: 8px; }
+  .function-arrow { right: 75px; top: 2px; font-size: 8px; }
 
   .bloc { letter-spacing: 1px; margin: 0px;}
   .bloc-word { font-size: 8px;}
