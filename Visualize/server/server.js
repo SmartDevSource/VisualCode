@@ -1,17 +1,20 @@
 const express = require('express')
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
 require('dotenv').config()
 
 const app = express()
 const port = 3000
 
+host = process.env.DATABASE
+
 const db = mysql.createConnection({
         host: process.env.HOST,
-        user: process.env.USER,
-        password: process.env.PASSWORD,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
         database: process.env.DATABASE,
         port: process.env.PORT
+
 })
 
 db.connect((err)=>{ err ? console.log("Erreur de connection", err) : console.log("Connection réussie") })
