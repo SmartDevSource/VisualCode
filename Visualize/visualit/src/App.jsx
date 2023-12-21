@@ -113,11 +113,11 @@ const App = () => {
       <Header></Header>
         <div className = 'grid3-bloc'>
           {/********************LANGAGES{/********************/}
-          <div className = 'bloc' style ={{width:'200px'}}>
+          <div className = 'bloc mw-min' style ={{width:'200px'}}>
             <div className = 'bloc-header'>Langages</div>
             {languages && languages.map(language=>{
               return (
-                <p key = {language.id} onClick={()=>handleLanguageSelection(language)} className='bloc-word text-center' style={{position:'relative'}}>
+                <p key = {language.id} onClick={()=>handleLanguageSelection(language)} className='bloc-word big-res-typo text-center' style={{position:'relative'}}>
                   {language}
                   {currentLanguage == language && 
                     <svg xmlns="http://www.w3.org/2000/svg" width="20px" className= "right-arrow" viewBox="0 0 24 24"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" fill="currentColor"></path></svg>                
@@ -128,11 +128,11 @@ const App = () => {
             }
           </div>
           {/********************CATEGORIES{/********************/}
-          <div className='bloc hidden' style = {{width:'200px'}} id = 'div_categories'>
-            <div className='bloc-header'>Catégories</div>
+          <div className = 'bloc hidden mw-min' id = 'div_categories'>
+            <div className = 'bloc-header'>Catégories</div>
             {currentData && currentData['categories'] && currentData['categories'].map(category=>{
                 return (
-                  <p key = {category.id} onClick={()=>handleCategorySelection(category)} className='bloc-word text-center' style={{position:'relative'}}>
+                  <p key = {category.id} onClick={()=>handleCategorySelection(category)} className='bloc-word big-res-typo text-center' style={{position:'relative'}}>
                   {category.category}
                   {currentCategory && currentCategory['category'] == category.category && 
                     <svg xmlns="http://www.w3.org/2000/svg" className= "right-arrow" viewBox="0 0 24 24"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" fill="currentColor"></path></svg>                
@@ -142,12 +142,12 @@ const App = () => {
             })}
           </div>
           {/********************CONTENUS{/********************/}
-          <div className='bloc hidden' style = {{maxWidth:'420px'}} id = 'div_contents'>
-            <div className='bloc-header'>Fonctions</div>
+          <div className = {`bloc hidden ${currentCategory && currentCategory.category != 'Functions' ?'mw-standard' : 'mw-max'}`} id = 'div_contents'>
+            <div className = 'bloc-header'>Fonctions</div>
             {currentCategory && currentCategory['data'] && currentCategory['data'].map(content=>{
               return(
                 <span key = {content.id} className='bloc-word' style={{position:'relative'}}>
-                  <Content category = {currentCategory.category} data = {content}></Content>
+                  <Content language = {currentLanguage} category = {currentCategory.category} data = {content}></Content>
                 </span>
               )
             })}

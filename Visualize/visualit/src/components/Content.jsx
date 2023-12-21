@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Shape } from './Shape'
 
-export const Content = ({category, data}) => {
+export const Content = ({language, category, data}) => {
     const [content, setContent] = useState(null)
 
     const isBoolean = (str) => str == 'true' || str == 'false'
@@ -9,14 +9,14 @@ export const Content = ({category, data}) => {
     const buildContent = () =>{
         const tmpContent = []
 
-        data = data.replace('==>','>')
-        const datas = data.split('>')
+        data = data.replace('==>','>>>')
+        const datas = data.split('>>>')
         
         var currentColor = ''
         var dotTriggered = false
 
         switch(category){
-            case 'Arrays':
+            case 'Arrays': case 'Lists':
                 tmpContent.push(
                     <>
                     {datas[0].split('').map(c=>{
@@ -42,7 +42,6 @@ export const Content = ({category, data}) => {
                     <span className = "function-arrow">→</span>
                     </>
                 )
-
                 setContent(tmpContent)
             break
             case 'Strings':
@@ -68,7 +67,6 @@ export const Content = ({category, data}) => {
                     </>
                 )
                 setContent(tmpContent)
-
             break
             case 'Maths':
                 tmpContent.push(
@@ -106,7 +104,17 @@ export const Content = ({category, data}) => {
                     </>
                 )
                 setContent(tmpContent)
-
+            break
+            case 'Functions':
+                console.log(datas)
+                tmpContent.push(
+                    <>
+                        {datas[0]}
+                        <p>{datas[1]}</p>
+                        <p>{language}</p>
+                    </>
+                )
+                setContent(tmpContent)
             break
         }
     }
