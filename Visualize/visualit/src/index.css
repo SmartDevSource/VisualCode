@@ -117,6 +117,12 @@ body {
   text-align: center;
 }
 
+.functions-category{
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+}
+
 .bloc-word:hover {
   transition: .2s;
   cursor: pointer;

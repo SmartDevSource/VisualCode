@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Shape } from './Shape'
-import { codeColors } from '../structs.js'
+import { textFormats } from '../structs.js'
 
 export const Content = ({language, category, data}) => {
     const [content, setContent] = useState(null)
@@ -9,7 +9,7 @@ export const Content = ({language, category, data}) => {
 
     const buildContent = () =>{
         const tmpContent = []
-
+        
         data = data.replaceAll('==>','>>>')
         const datas = data.split('>>>')
         
@@ -111,23 +111,20 @@ export const Content = ({language, category, data}) => {
                 console.log(datas[2])
                 tmpContent.push(
                     <>
+                        {datas[3] && <div className='functions-category text-center'>{datas[3]}</div> }
                         {datas[0] && datas[0].split('').map((c,i)=>{
                             switch(c){
                                 case '%':
-                                    const indexColor = codeColors.indexOf(datas[0][i+1]+datas[0][i+2])
+                                    const indexColor = textFormats.indexOf(datas[0][i+1]+datas[0][i+2])
                                     if (indexColor != -1){
-                                        currentColor = codeColors[indexColor]
+                                        currentColor = textFormats[indexColor]
                                         lastColorIndex = i
-                                    } else {
+                                    } else
                                         return <span className = {`${currentColor}`}>{c}</span>
-                                    }
                                 break
                                 default:
-                                    if (i==datas[0].split('').length){
-                                        lastColorIndex = -1
-                                    }
-                                    if (i-lastColorIndex>2)
-                                        return <span className = {`${currentColor}`}>{c}</span>
+                                    if (i==datas[0].split('').length) lastColorIndex = -1
+                                    if (i-lastColorIndex>2) return <span className = {`${currentColor}`}>{c}</span>
                                 break
                             }
                         })}
@@ -135,9 +132,9 @@ export const Content = ({language, category, data}) => {
                         {datas[1] && datas[1].split('').map((c,i)=>{
                             switch(c){
                                 case '%':
-                                    const indexColor = codeColors.indexOf(datas[1][i+1]+datas[1][i+2])
+                                    const indexColor = textFormats.indexOf(datas[1][i+1]+datas[1][i+2])
                                     if (indexColor != -1){
-                                        currentColor = codeColors[indexColor]
+                                        currentColor = textFormats[indexColor]
                                         lastColorIndex = i
                                     } else {
                                         return <span className = {`${currentColor}`}>{c}</span>

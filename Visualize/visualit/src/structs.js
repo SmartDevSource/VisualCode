@@ -1,4 +1,4 @@
-export const codeColors = [
+export const textFormats = [
     "LW", // LIGHT WHITE
     "DW", // DARK WHITE
     "LB", // LIGHT BLUE
@@ -10,5 +10,6 @@ export const codeColors = [
     "LY", // LIGHT YELLOW
     "DY", // DARK YELLOW
     "LP", // LIGHT PURPLE
-    "DP" // DARK PURPLE
+    "DP", // DARK PURPLE,
+    "TC" // TEXT CENTER
 ]
