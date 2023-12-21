@@ -148,6 +148,39 @@ body {
   color: rgb(220,220,170);
 }
 
+.DB {
+  color: rgb(15, 43, 172);
+}
+
+.LB {
+  color: rgb(0, 183, 255)
+}
+
+.LW {
+  color: white;
+}
+
+.DW {
+  color: rgb(179, 179, 179);
+}
+
+
+.LY {
+  color: rgb(255, 253, 135);
+}
+
+.DY {
+  color: rgb(255, 251, 0);
+}
+
+.LG {
+  color: rgb(20, 221, 20);
+}
+
+.LO {
+  color: orange;
+}
+
 .right-arrow {
   width: 20px;
   position: absolute;

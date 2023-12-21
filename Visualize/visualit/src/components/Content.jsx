@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Shape } from './Shape'
+import { codeColors } from '../structs.js'
 
 export const Content = ({language, category, data}) => {
     const [content, setContent] = useState(null)
@@ -9,17 +10,17 @@ export const Content = ({language, category, data}) => {
     const buildContent = () =>{
         const tmpContent = []
 
-        data = data.replace('==>','>>>')
+        data = data.replaceAll('==>','>>>')
         const datas = data.split('>>>')
         
         var currentColor = ''
         var dotTriggered = false
-
+        
         switch(category){
             case 'Arrays': case 'Lists':
                 tmpContent.push(
                     <>
-                    {datas[0].split('').map(c=>{
+                    {datas[0] && datas[0].split('').map(c=>{
                         switch(c){
                             case '@': return <Shape type = "circle"></Shape>
                             case '^': return <Shape type = "triangle"></Shape>
@@ -31,7 +32,7 @@ export const Content = ({language, category, data}) => {
                         }
                     })}
                     <span style = {{float:'right'}}>
-                        {datas[1].split('').map(c=>{
+                        {datas[1] && datas[1].split('').map(c=>{
                             switch(c){
                                 case '@': return <Shape type = "circle"></Shape>
                                 case '^': return <Shape type = "triangle"></Shape>
@@ -71,7 +72,7 @@ export const Content = ({language, category, data}) => {
             case 'Maths':
                 tmpContent.push(
                     <>
-                    {datas[0].split('').map(c=>{
+                    {datas[0] && datas[0].split('').map(c=>{
                         switch(c){
                             case '@': return <Shape type = "circle"></Shape>
                             case '^': return <Shape type = "triangle"></Shape>
@@ -95,7 +96,7 @@ export const Content = ({language, category, data}) => {
                     })}
                     <span style = {{float:'right'}}>
                         <span className = 'number-color'>
-                        {datas[1].split('').map(c=>{
+                        {datas[1] && datas[1].split('').map(c=>{
                             return c
                         })}
                         </span>
@@ -106,20 +107,61 @@ export const Content = ({language, category, data}) => {
                 setContent(tmpContent)
             break
             case 'Functions':
-                console.log(datas)
+                var lastColorIndex = -1
+                console.log(datas[2])
                 tmpContent.push(
                     <>
-                        {datas[0]}
-                        <p>{datas[1]}</p>
-                        <p>{language}</p>
+                        {datas[0] && datas[0].split('').map((c,i)=>{
+                            switch(c){
+                                case '%':
+                                    const indexColor = codeColors.indexOf(datas[0][i+1]+datas[0][i+2])
+                                    if (indexColor != -1){
+                                        currentColor = codeColors[indexColor]
+                                        lastColorIndex = i
+                                    } else {
+                                        return <span className = {`${currentColor}`}>{c}</span>
+                                    }
+                                break
+                                default:
+                                    if (i==datas[0].split('').length){
+                                        lastColorIndex = -1
+                                    }
+                                    if (i-lastColorIndex>2)
+                                        return <span className = {`${currentColor}`}>{c}</span>
+                                break
+                            }
+                        })}
+                        <p></p>
+                        {datas[1] && datas[1].split('').map((c,i)=>{
+                            switch(c){
+                                case '%':
+                                    const indexColor = codeColors.indexOf(datas[1][i+1]+datas[1][i+2])
+                                    if (indexColor != -1){
+                                        currentColor = codeColors[indexColor]
+                                        lastColorIndex = i
+                                    } else {
+                                        return <span className = {`${currentColor}`}>{c}</span>
+                                    }
+                                break
+                                default:
+                                    if (i-lastColorIndex>2)
+                                        return <span className = {`${currentColor}`}>{c}</span>
+                                break
+                            }
+                        })}
+                        <span style = {{float:'right'}}>
+                            <span className = 'DW'>
+                                {datas[2] && datas[2].split('').map(c=>{
+                                    return c
+                                })}
+                            </span>
+                        </span>
                     </>
                 )
                 setContent(tmpContent)
             break
         }
     }
-
-    "test".startsWith()
 
     useEffect(()=>{
         if (data){
