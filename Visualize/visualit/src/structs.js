@@ -11,5 +11,6 @@ export const textFormats = [
     "DY", // DARK YELLOW
     "LP", // LIGHT PURPLE
     "DP", // DARK PURPLE,
-    "TC" // TEXT CENTER
+    "TC", // TEXT CENTER
+    "LR", // LIGHT RED
 ]

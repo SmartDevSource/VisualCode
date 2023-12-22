@@ -5,12 +5,22 @@ body {
   margin: 0;
 }
 
+::-moz-selection {
+  color: rgb(0, 0, 0);
+  background: rgb(151, 151, 151);
+}
+
+::selection {
+  color: rgb(0, 0, 0);
+  background: rgb(151, 151, 151);
+}
+
 .flexrow { display: flex; justify-content: center; flex-direction: row;  line-height: 20px; }
 .flexcol { display: flex; flex-direction: column; align-items: center; }
 
 .mw-min { max-width: 200px; }
-.mw-standard { max-width: 450px; }
-.mw-max { max-width: 750px ;}
+.mw-standard { max-width: 500px; }
+.mw-max { max-width: 800px; }
 
 .grid2 {
   display: grid;
@@ -104,13 +114,8 @@ body {
   border: 1px solid rgb(87, 87, 87);
   box-shadow: 5px 5px 12px rgb(32, 32, 32);
   background-color: rgb(80, 80, 80);
-  user-select: none;
   border-radius: 5px;
   height: fit-content;
-}
-
-.bloc-word { 
-  transition: .2s;
 }
 
 .text-center {   
@@ -123,7 +128,8 @@ body {
   padding: 5px;
 }
 
-.bloc-word:hover {
+.bloc-word-menu:hover {
+  user-select: none;
   transition: .2s;
   cursor: pointer;
   color: orange;
@@ -134,8 +140,7 @@ body {
 }
 
 .appear {
-  transition: .6s;
-  from { opacity: 0 } to { opacity: 1;}
+  display: block;
 }
 
 .string-color {
@@ -154,8 +159,12 @@ body {
   color: rgb(220,220,170);
 }
 
+.LR {
+  color: rgb(255, 135, 135);
+}
+
 .DB {
-  color: rgb(15, 43, 172);
+  color: rgb(0, 20, 107);
 }
 
 .LB {
@@ -170,7 +179,6 @@ body {
   color: rgb(179, 179, 179);
 }
 
-
 .LY {
   color: rgb(255, 253, 135);
 }
@@ -181,6 +189,10 @@ body {
 
 .LG {
   color: rgb(20, 221, 20);
+}
+
+.LP {
+  color: rgb(196, 114, 250);
 }
 
 .LO {
@@ -197,7 +209,7 @@ body {
 .function-arrow {
   position: absolute;
   top: 0px;
-  right: 155px;
+  right: 170px;
   font-size: 18px;
   font-weight: bold;
   color: #DCDCDC;
@@ -212,10 +224,10 @@ body {
   .obj-triangle { border-right : 6px solid transparent; border-bottom : 12px solid rgb(252, 231, 50); border-left : 6px solid transparent; }
 
   .right-arrow { width: 15px; top: -3px;}
-  .function-arrow { right: 75px; top: 2px; font-size: 12px; }
+  .function-arrow { right: 110px; top: 2px; font-size: 12px; }
 
   .bloc { letter-spacing: 1px; margin: 0px;}
-  .bloc-word { font-size: 8px;}
+  .bloc-word { font-size: 11px;}
 
   .mw-min { min-width: 350px; }
   .mw-max { min-width: 350px; }
