@@ -86,10 +86,22 @@ export const Content = ({language, category, data}) => {
                             default:
                                 if (i==datas[0].split('').length) lastColorIndex = -1
                                 switch(c){
-                                    case '@': return <span className = {`obj-circle`}></span>
-                                    case '^': return <span className = {`obj-triangle`}></span>
+                                    case '@': 
+                                        if (category == 'Arrays' || category == 'Lists'){
+                                            return <span className = {`obj-circle`}></span>
+                                        } else {
+                                            if (i-lastColorIndex>2) return <span className = {`${currentColor}`}>{c}</span>
+                                        }
+                                    break
+                                    case '^': 
+                                    if (category == 'Arrays' || category == 'Lists'){
+                                        return <span className = {`obj-triangle`}></span>
+                                    } else {
+                                        if (i-lastColorIndex>2) return <span className = {`${currentColor}`}>{c}</span>
+                                    }
                                     default:
                                         if (i-lastColorIndex>2) return <span className = {`${currentColor}`}>{c}</span>
+                                    break
                                 }
                             break
                         }
@@ -111,10 +123,22 @@ export const Content = ({language, category, data}) => {
                             default:
                                 if (i==datas[1].split('').length) lastColorIndex = -1
                                 switch(c){
-                                    case '@': return <span className = {`obj-circle`}></span>
-                                    case '^': return <span className = {`obj-triangle`}></span>
+                                    case '@': 
+                                        if (category == 'Arrays' || category == 'Lists'){
+                                            return <span className = {`obj-circle`}></span>
+                                        } else {
+                                            if (i-lastColorIndex>2) return <span className = {`${currentColor}`}>{c}</span>
+                                        }
+                                    break
+                                    case '^': 
+                                    if (category == 'Arrays' || category == 'Lists'){
+                                        return <span className = {`obj-triangle`}></span>
+                                    } else {
+                                        if (i-lastColorIndex>2) return <span className = {`${currentColor}`}>{c}</span>
+                                    }
                                     default:
                                         if (i-lastColorIndex>2) return <span className = {`${currentColor}`}>{c}</span>
+                                    break
                                 }
                             break
                         }

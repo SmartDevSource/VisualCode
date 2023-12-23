@@ -19,7 +19,7 @@ body {
 .flexcol { display: flex; flex-direction: column; align-items: center; }
 
 .mw-min { max-width: 200px; }
-.mw-standard { max-width: 500px; }
+.mw-standard { max-width: 600px; }
 .mw-max { max-width: 800px; }
 
 .grid2 {
