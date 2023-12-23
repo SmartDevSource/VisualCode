@@ -5,13 +5,6 @@ import { textFormats } from '../structs.js'
 export const Content = ({language, category, data}) => {
     const [content, setContent] = useState(null)
 
-    const getColorType = (str) => {
-        if (str.toLowerCase().includes("false") || str.toLowerCase().includes("true")) return 'boolean-color'
-        if (str.includes('"')) return 'string-color'
-        if (str.includes('[')) return 'array-color'
-        return 'number-color'
-    }
-
     const buildContent = () =>{
         const tmpContent = []
         
